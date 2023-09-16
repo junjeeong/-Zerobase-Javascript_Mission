@@ -9,6 +9,7 @@ $containers.forEach(($container, i) => {
 
   // 이벤트 'rating-change'를 캐치해 화면에 표시한다.
   $container.addEventListener('rating-change', e => {
-    $currentRatings[i].textContent = e.detail;
+    const rating = e.detail;
+    $currentRatings[i].textContent = rating;
   });
 });
