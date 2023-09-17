@@ -1,19 +1,22 @@
+:root {
+  --calendar-width: 450px;
+  --calendar-font-size: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
- 
+
 button {
-  /* button 요소에 기본적으로 설정되는 스타일 속성 초기화 */
   border: none;
   outline: none;
   background-color: transparent;
   padding: 0;
   cursor: pointer;
 }
- 
- /*#4 */
+
 body {
   display: flex;
   align-items: center;
@@ -21,83 +24,91 @@ body {
   min-height: 100vh;
   background: #008aff;
 }
-/*#5 */
+
 .wrapper {
-  width: 450px;
+  width: var(--calendar-width);
   background: #fff;
   border-radius: 10px;
   padding: 25px;
 }
- 
-/*#6*/
+
 .wrapper .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
 }
+
 .current-date {
   text-align: center;
-  font-size : 30px;
+  font-size: calc(var(--calendar-font-size) * 1.5);
   font-weight: 600;
 }
+
 .wrapper .nav button {
   width: 40px;
   height: 40px;
   color: #878787;
 }
+
 .wrapper .nav button i {
-  font-size: 30px;
+  font-size: calc(var(--calendar-font-size) * 1.875);
 }
 
-	/*#7*/
-  .calendar ul {
-    display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-  .calendar .weeks li {
-    font-weight: 500;
-  }
-  .calendar .days {
-    margin-bottom: 20px;
-  }
-  .calendar ul li {
-    /*#8*/
-    width: calc(100% / 7);
-    /*#9*/
-    position: relative;
-  }
-  .calendar .days li {
-    /*#10*/
-    z-index: 1;
-    margin-top: 30px;
-    cursor: pointer;
-  }
-   
-  /*#11*/
-  .days li.inactive {
-    color: #aaa;
-  }
+.calendar ul {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  text-align: center;
+}
 
-  .days li.active {
-    color: #fff;
-  }
-  .calendar .days li::before {
-    position: absolute;
-    content: '';
-    height: 40px;
-    width: 40px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: -1;
-  }
-  .days li:hover::before {
-    background: #f2f2f2;
-  }
-  .days li.active::before {
-    background: #008aff;
-  }
+.calendar .weeks li {
+  font-weight: 500;
+}
+
+.calendar .days {
+  margin-bottom: 20px;
+}
+
+.calendar ul li {
+  width: calc(100% / 7);
+  position: relative;
+}
+
+.calendar .days li {
+  z-index: 1;
+  margin-top: calc(var(--calendar-font-size) * 1.875);
+  cursor: pointer;
+}
+
+.days li.inactive {
+  color: #aaa;
+}
+
+.days li.active {
+  color: #fff;
+}
+
+.sunday {
+  color: red;
+}
+
+.calendar .days li::before {
+  position: absolute;
+  content: '';
+  height: 40px;
+  width: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.days li:hover::before {
+  background: #f2f2f2;
+}
+
+.days li.active::before {
+  background: #008aff;
+}
