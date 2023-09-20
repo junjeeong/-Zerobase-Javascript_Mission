@@ -8,7 +8,7 @@ export const makeNewsListComponent = () => {
     const newsListArticle = makeDOMWithProperties('article', {
         className: 'news-list'
     });
-    
+
     root.appendChild(newsListContainer);
     newsListContainer.appendChild(newsListArticle);
 
